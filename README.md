@@ -1,0 +1,100 @@
+# KOllama
+
+A Kotlin-first library for [Ollama](https://ollama.ai/), providing idiomatic Kotlin APIs to interact with Ollama's
+server.
+
+> 🚧 **Development Status**: We're actively building core features. The API is stable but may evolve.  
+> 📚 **Documentation**: Code is thoroughly documented with KDoc. We plan to set up CI to auto-generate Dokka
+> documentation soon.  
+> 📦 **Distribution**: Not yet published to Maven Central. For now, use JitPack (see below).
+
+## Features
+
+- ✅ Full support for Ollama API: generate, chat, pull, push, list, etc.
+- ✅ Coroutines & Flow for streaming responses
+- ✅ Type-safe requests and responses with `kotlinx.serialization`
+- ✅ Built on Ktor client (engine-swappable)
+
+## Installation (via JitPack)
+
+Add the JitPack repository and dependency:
+
+```kotlin
+// settings.gradle.kts or build.gradle.kts
+repositories {
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
+}
+
+dependencies {
+    implementation("com.github.BlophyNova:kollama:main-SNAPSHOT") // or a specific commit hash
+}
+```
+
+Quick Start
+
+Here's a simple example to generate text:
+
+```kotlin
+fun main() = runBlocking {
+    val ollama = KOllamaClient()
+    val r = ollama.chat {
+        model = "qwen3-vl:latest"
+        message {
+            role = ChatRole.User
+            content = "What is the meaning of life?"
+        }
+        stream = false
+    }
+    println(r.message.content)
+}
+```
+
+For chat, pulling models, etc., check the KDoc in the code.
+
+Documentation
+
+Currently, the best documentation is the KDoc in the source code. We encourage you to explore the code or use your IDE
+to view the docs. In the future, we will host Dokka-generated documentation online.
+
+## License
+
+This project is **dual-licensed**:
+
+### GNU Affero General Public License v3.0 (AGPLv3)
+
+You may use, modify, and distribute this software under the terms of the AGPLv3.
+See LICENSE.AGPLv3 for details.
+
+### Commercial License
+
+If you need to use this library in a proprietary project without complying with AGPLv3's open-source requirements, you
+can purchase a commercial license.
+
+Price: ¥299 RMB (approx. $40 USD) — one-time, perpetual license
+
+What you get:
+
+- Use the library in any number of closed-source projects.
+
+- Modify the library without publishing your changes.
+
+#### How to Purchase
+
+👉 Purchase via 爱发电 (Aifadian) – supports WeChat Pay / Alipay (mainly for users in China):
+https://afdian.com/a/blophynova
+
+Delivery: Our team consists of high school students, so we process licenses **only on weekends**. After payment, you will
+receive the license PDF on the nearest weekend (Saturday or Sunday). The maximum wait time is until the following
+Monday. For example:
+
+- Pay on Monday–Friday → receive on the coming weekend.
+
+- Pay on Saturday or Sunday → receive on the next weekend (following Saturday/Sunday).
+
+If you don't receive it by Tuesday (for weekend payments), please check your spam folder or contact:
+license@nova.blophy.net
+
+**The software is provided "AS IS", without warranty of any kind, express or implied.**
+
+**For companies, please email license@nova.blophy.net to discuss alternative arrangements.**
