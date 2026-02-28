@@ -3,10 +3,11 @@
 A Kotlin-first library for [Ollama](https://ollama.ai/), providing idiomatic Kotlin APIs to interact with Ollama's
 server.
 
-> 🚧 **Development Status**: We're actively building core features. The API is stable but may evolve.  
-> 📚 **Documentation**: Code is thoroughly documented with KDoc. We plan to set up CI to auto-generate Dokka
-> documentation soon.  
-> 📦 **Distribution**: Not yet published to Maven Central. For now, use JitPack (see below).
+🚧 **Development Status**: We're actively building core features. The API is stable but may evolve.  
+
+📚 **Documentation**: Code is thoroughly documented with KDoc. The online document is available [here](https://docs.blophy.net/kollama)
+
+📦 **Distribution**: Not yet published to Maven Central. For now, use JitPack (see below).
 
 ## Features
 
